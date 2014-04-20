@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+     >
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:text="Frequently visited clients......"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/ca1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView1"
+        android:layout_alignRight="@+id/textView1"
+        android:layout_below="@+id/textView1"
+        android:layout_marginTop="15dp"
+        android:ems="10"
+        android:inputType="textPostalAddress" 
+        >
+        
+        <requestFocus />
+        
+        </EditText> 
+        
+    <EditText
+        android:id="@+id/ca2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/ca1"
+        android:layout_alignRight="@+id/ca1"
+        android:layout_below="@+id/ca1"
+        android:layout_marginTop="14dp"
+        android:ems="10"
+        android:inputType="textPostalAddress" />
+
+    <EditText
+        android:id="@+id/ca3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/ca2"
+        android:layout_alignRight="@+id/ca2"
+        android:layout_below="@+id/ca2"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:inputType="textPostalAddress" />
+
+    <EditText
+        android:id="@+id/ca4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/ca3"
+        android:layout_alignRight="@+id/ca3"
+        android:layout_below="@+id/ca3"
+        android:layout_marginTop="14dp"
+        android:ems="10"
+        android:inputType="textPostalAddress" />
+
+    <EditText
+        android:id="@+id/ca5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/ca4"
+        android:layout_alignRight="@+id/ca4"
+        android:layout_below="@+id/ca4"
+        android:layout_marginTop="19dp"
+        android:ems="10"
+        android:inputType="textPostalAddress" />
+
+</RelativeLayout>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+     >
+
+    <TextView
+        android:id="@+id/TextView01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/workAddress"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/workAddress"
+        android:layout_marginTop="18dp"
+        android:text="Now how about your Primary Work Address"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/wa1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView1"
+        android:layout_alignRight="@+id/textView1"
+        android:layout_below="@+id/textView1"
+        android:layout_marginTop="15dp"
+        android:ems="10"
+        android:inputType="textPostalAddress" />
+
+    <EditText
+        android:id="@+id/wa2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/wa1"
+        android:layout_alignRight="@+id/wa1"
+        android:layout_below="@+id/wa1"
+        android:layout_marginTop="14dp"
+        android:ems="10"
+        android:inputType="textPostalAddress" />
+
+    <EditText
+        android:id="@+id/wa3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/wa2"
+        android:layout_alignRight="@+id/wa2"
+        android:layout_below="@+id/wa2"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:inputType="textPostalAddress" />
+
+    <EditText
+        android:id="@+id/wa4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/wa3"
+        android:layout_alignRight="@+id/wa3"
+        android:layout_below="@+id/wa3"
+        android:layout_marginTop="14dp"
+        android:ems="10"
+        android:inputType="textPostalAddress" />
+
+    <EditText
+        android:id="@+id/wa5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/wa4"
+        android:layout_alignRight="@+id/wa4"
+        android:layout_below="@+id/wa4"
+        android:layout_marginTop="19dp"
+        android:ems="10"
+        android:inputType="textPostalAddress" />
+
+    <EditText
+        android:id="@+id/workAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView1"
+        android:layout_alignRight="@+id/textView1"
+        android:layout_below="@+id/TextView01"
+        android:ems="10"
+        android:inputType="textPostalAddress" />
+
+    <CheckBox
+        android:id="@+id/StartAtAny"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView1"
+        android:layout_alignRight="@+id/textView1"
+        android:layout_below="@+id/workAddress"
+        android:layout_marginTop="14dp"
+        android:text="I start work from any place of work.." />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/StartAtAny"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="17dp"
+        android:text="Some other places of work...."
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+</RelativeLayout>
