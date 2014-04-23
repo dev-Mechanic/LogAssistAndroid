@@ -5,24 +5,24 @@
     android:layout_height="match_parent" >
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/TotalDist"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView1"
-        android:layout_below="@+id/textView1"
+        android:layout_alignLeft="@+id/TripDesc"
+        android:layout_below="@+id/TripDesc"
         android:layout_marginTop="19dp"
         android:text="From.."
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
-<!--     <EditText -->
-<!--         android:id="@+id/FromDate" -->
-<!--         android:layout_width="wrap_content" -->
-<!--         android:layout_height="wrap_content" -->
-<!--         android:layout_alignBaseline="@+id/textView2" -->
-<!--         android:layout_alignBottom="@+id/textView2" -->
-<!--         android:layout_alignRight="@+id/textView1" -->
-<!--         android:ems="10" -->
-<!--         android:inputType="date" /> -->
+    <!-- <EditText -->
+    <!-- android:id="@+id/FromDate" -->
+    <!-- android:layout_width="wrap_content" -->
+    <!-- android:layout_height="wrap_content" -->
+    <!-- android:layout_alignBaseline="@+id/textView2" -->
+    <!-- android:layout_alignBottom="@+id/textView2" -->
+    <!-- android:layout_alignRight="@+id/textView1" -->
+    <!-- android:ems="10" -->
+    <!-- android:inputType="date" /> -->
 
     <TextView
         android:id="@+id/TextView01"
@@ -42,12 +42,11 @@
         android:layout_alignBottom="@+id/TextView01"
         android:layout_alignRight="@+id/FromDate"
         android:ems="10"
-        android:text="To Date"
         android:onClick="showDatePickerDialog"
-        />
+        android:text="To Date" />
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/TripDesc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -57,84 +56,28 @@
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
-        android:id="@+id/TextView04"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView1"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="34dp"
-        android:text="A target % claim to achieve..."
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <EditText
-        android:id="@+id/percentClaim"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/TextView04"
-        android:layout_alignRight="@+id/TextView04"
-        android:layout_below="@+id/TextView04"
-        android:ems="10"
-        android:inputType="number" >
-
-        <requestFocus />
-    </EditText>
-
-    <TextView
         android:id="@+id/TextView02"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView2"
-        android:layout_below="@+id/TextView03"
+        android:layout_alignLeft="@+id/TotalDist"
+        android:layout_below="@+id/PersonalTravel"
         android:layout_marginTop="20dp"
         android:text="Start ODO.."
         android:textAppearance="?android:attr/textAppearanceMedium" />
-
-    <EditText
-        android:id="@+id/startODO"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/TextView02"
-        android:layout_alignBottom="@+id/TextView02"
-        android:layout_marginLeft="15dp"
-        android:layout_toRightOf="@+id/TextView02"
-        android:ems="10"
-        android:inputType="number" />
-
-    <TextView
-        android:id="@+id/TextView05"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/startODO"
-        android:layout_marginTop="18dp"
-        android:layout_toLeftOf="@+id/startODO"
-        android:text="End ODO.."
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
-    <EditText
-        android:id="@+id/endODO"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/TextView05"
-        android:layout_alignBottom="@+id/TextView05"
-        android:layout_alignLeft="@+id/startODO"
-        android:layout_alignParentRight="true"
-        android:ems="10"
-        android:inputType="number" />
 
     <Button
         android:id="@+id/FromDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/textView2"
-        android:layout_alignBottom="@+id/textView2"
-        android:layout_alignRight="@+id/textView1"
-        android:layout_toRightOf="@+id/textView2"
+        android:layout_alignBaseline="@+id/TotalDist"
+        android:layout_alignBottom="@+id/TotalDist"
+        android:layout_alignRight="@+id/TripDesc"
+        android:layout_toRightOf="@+id/TotalDist"
         android:onClick="showDatePickerDialog"
         android:text="From Date" />
 
     <TextView
-        android:id="@+id/TextView03"
+        android:id="@+id/PersonalTravel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
@@ -150,7 +93,59 @@
         android:layout_alignRight="@+id/ToDate"
         android:layout_below="@+id/ToDate"
         android:layout_marginTop="14dp"
-        android:layout_toRightOf="@+id/textView2"
+        android:layout_toRightOf="@+id/TotalDist"
         android:text="Work on Weekends..." />
+
+    <EditText
+        android:id="@+id/endODO"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/TextView05"
+        android:layout_alignBottom="@+id/TextView05"
+        android:layout_alignLeft="@+id/ODOStart"
+        android:layout_alignParentRight="true"
+        android:ems="10"
+        android:inputType="number" />
+
+    <TextView
+        android:id="@+id/TextView04"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:text="A target % claim to achieve..."
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/claimPercent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/TextView04"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:inputType="number" >
+
+        <requestFocus />
+    </EditText>
+
+    <TextView
+        android:id="@+id/TextView05"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/TextView02"
+        android:layout_below="@+id/TextView02"
+        android:layout_marginTop="14dp"
+        android:text="End ODO.."
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <EditText
+        android:id="@+id/ODOStart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/endODO"
+        android:layout_toRightOf="@+id/TextView02"
+        android:ems="10"
+        android:inputType="number" />
 
 </RelativeLayout>

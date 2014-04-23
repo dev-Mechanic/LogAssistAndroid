@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <TextView
+        android:id="@+id/TripDesc"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_alignParentLeft="true"
+        android:layout_toLeftOf="@+id/DeductableDist"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/TripDesc"
+        android:text="Personal Travel" />
+
+    <TextView
+        android:id="@+id/TextView02"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView2"
+        android:text="Total Travel" />
+
+    <TextView
+        android:id="@+id/PersonalTravel"
+        android:layout_width="65dp"
+        android:layout_height="18dp"
+        android:layout_alignBaseline="@+id/textView2"
+        android:layout_alignBottom="@+id/textView2"
+        android:layout_centerHorizontal="true"
+        android:text="Large Text"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/TotalDist"
+        android:layout_width="65dp"
+        android:layout_height="18dp"
+        android:layout_alignBaseline="@+id/TextView02"
+        android:layout_alignBottom="@+id/TextView02"
+        android:layout_alignLeft="@+id/PersonalTravel"
+        android:text="Large Text"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/TripType"
+        android:layout_width="65dp"
+        android:layout_height="18dp"
+        android:layout_alignLeft="@+id/TextView01"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/TripDate"
+        android:layout_width="75dp"
+        android:layout_height="18dp"
+        android:layout_alignLeft="@+id/TextView01"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/TripType"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/TextView01"
+        android:layout_width="65dp"
+        android:layout_height="18dp"
+        android:layout_alignLeft="@+id/DeductableDist"
+        android:layout_below="@+id/TripDate"
+        android:text="Claimable" />
+
+    <TextView
+        android:id="@+id/DeductableDist"
+        android:layout_width="95dp"
+        android:layout_height="36dp"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/TextView01"
+        android:text="Large Text"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="25sp" />
+
+</RelativeLayout>

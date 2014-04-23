@@ -2,8 +2,13 @@ package dev.tm.logassist;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.Locale;
 
+import org.joda.time.DateTime;
+
+import entity.DayRoute;
+import entity.LogRecord;
 import logbook.LogBookCore;
 import logbook.LogGenerator;
 import android.support.v7.app.ActionBarActivity;
@@ -15,6 +20,8 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.content.Context;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.view.Gravity;
@@ -24,9 +31,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.DatePicker;
+import android.widget.ListView;
 import android.widget.TextView;
 
 public class MainActivity extends ActionBarActivity implements
@@ -62,7 +72,11 @@ public class MainActivity extends ActionBarActivity implements
 	String startDate,endDate;
 	int startODO,endODO;
 	float percentClaim;
-
+	
+	ArrayList<LogRecord> logBookHandle;
+	LogBookList listFrag;
+	
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -88,6 +102,7 @@ public class MainActivity extends ActionBarActivity implements
 
 		// Set up the ViewPager with the sections adapter.
 		mViewPager = (ViewPager) findViewById(R.id.pager);
+		mViewPager.setOffscreenPageLimit(6);
 		mViewPager.setAdapter(mSectionsPagerAdapter);
 
 		// When swiping between different sections, select the corresponding
@@ -111,6 +126,11 @@ public class MainActivity extends ActionBarActivity implements
 					.setText(mSectionsPagerAdapter.getPageTitle(i))
 					.setTabListener(this));
 		}
+		
+		
+		
+		
+		
 	}
 
 //	@Override
@@ -249,6 +269,12 @@ public class MainActivity extends ActionBarActivity implements
 			
 			View rootView = inflater.inflate(frameID, container,
 					false);
+//			if(frameID == R.layout.generate_log)
+//			{
+//				Fragment fr = getFragmentManager().findFragmentById(R.id.fragment1);
+//				getFragmentManager().beginTransaction().hide(fr).commit();
+//			}
+			
 //			TextView textView = (TextView) rootView
 //					.findViewById(R.id.section_label);
 //			textView.setText(Integer.toString(getArguments().getInt(
@@ -325,6 +351,57 @@ public class MainActivity extends ActionBarActivity implements
 	
 	public boolean validateInput()
 	{
+		
+//		System.out.println(" FRAG COUNT : " + this.getSupportFragmentManager().getFragments().size());
+////		View myInflatedView = this.getLayoutInflater().inflate(R.layout.home_address,,false);
+////
+////	    // Set the Text to try this out
+////	    TextView t = (TextView) myInflatedView.findViewById(R.id.homeAddress);
+////	    t.setText("Text to Display");
+//		
+//		ViewGroup testParent = (ViewGroup)this.findViewById(R.id.pager);
+//		if(testParent != null)
+//		{
+//			System.out.println("VIEW TES " + testParent.getId());
+//		}
+//		
+//		View testChild = this.findViewById(R.id.homeAddress);
+//		if(testChild != null)
+//		{
+//			System.out.println("VIEW HOmE TES " + testChild.getId());
+//		}
+//		
+//		
+//		for(Fragment fr : this.getSupportFragmentManager().getFragments())
+//		{
+//			System.out.println(" Frame : " + fr.getId() + ":");
+//			
+//			View v = fr.getView();
+//			
+//			if( v == null)
+//			{
+//				System.out.println(" Empty View");
+//			}
+//			else
+//			{
+//				System.out.println(" Got Something..." + ((ViewGroup)v).getChildCount());
+//				for(int i=0;i<((ViewGroup)v).getChildCount();i++)
+//				{
+//					ViewGroup ch = (ViewGroup) ((ViewGroup)v).getChildAt(i);
+//					System.out.println(" Child : " + ch.getChildCount()+ " :  ");
+//					for(int j=0;j<ch.getChildCount();j++)
+//					{
+//						View chInner =  ch.getChildAt(j);
+//						System.out.println(" Child : " + chInner.getId() + " : " + R.id.percentClaim + " :  ");
+//						
+//					}
+//					
+//				}
+//			}
+//			
+//		}
+//		
+//		//System.out.println(" Frame View " + this.getSupportFragmentManager().findFragmentById(R.layout.home_address).getView().findViewById(R.id.homeAddress).getId());
 		homeAddress = ((TextView)this.findViewById(R.id.homeAddress)).getText().toString();
 		workAddress = ((TextView)this.findViewById(R.id.workAddress)).getText().toString();
 		
@@ -358,32 +435,42 @@ public class MainActivity extends ActionBarActivity implements
 		startDate = ((Button)this.findViewById(R.id.FromDate)).getText().toString();
 		endDate = ((Button)this.findViewById(R.id.ToDate)).getText().toString();
 		
-		startODO = Integer.parseInt(((TextView)this.findViewById(R.id.startODO)).getText().toString());
+		TextView startODOC = (TextView)this.findViewById(R.id.ODOStart);
+		System.out.println("Start Value Check : "+ startODOC.getText());
+		
+		startODOC = (TextView)this.findViewById(R.id.endODO);
+		System.out.println("End Value Check : "+ startODOC.getText());
+		
+		startODOC = (TextView)this.findViewById(R.id.claimPercent);
+		System.out.println(" PC :  " + startODOC.getText());
+		
+		startODO = Integer.parseInt(((TextView)this.findViewById(R.id.ODOStart)).getText().toString());
 		endODO = Integer.parseInt(((TextView)this.findViewById(R.id.endODO)).getText().toString());
 		
 		StartAtAny = ((CheckBox)this.findViewById(R.id.StartAtAny)).isChecked();
 		WorkOnWeekends = ((CheckBox)this.findViewById(R.id.workOnWeekend)).isChecked();
 		
-		percentClaim = Float.parseFloat(((TextView)this.findViewById(R.id.percentClaim)).getText().toString());
+		percentClaim = Float.parseFloat(((TextView)this.findViewById(R.id.claimPercent)).getText().toString());
+		
+		System.out.println("Value Check");
 		
 		return true;
 	}
 	
 	
 	public void GenerateLogBook(View v) {
-		System.out.println(" Generate CALLED BY : " + v.getId());
-		LogGenerator lg = LogBookCore.GetLogBook(homeAddress,homeList,
-                								workAddress,workList,
-								                clientList, 
-								                StartAtAny,
-								                WorkOnWeekends,
-								                startDate, endDate,
-								                startODO,endODO,
-								                percentClaim,
-								                3,
-								                "DISTHOPS");
+		System.out.println(" Generate CALLED BY : " + v.getId() + ":" + v.getParent().toString());
 		
-		System.out.println(" RESULTS : " + lg.GetRecords().size());
+		validateInput();
+		listFrag = new LogBookList();
+		getSupportFragmentManager().beginTransaction().replace(R.id.fragment1, listFrag).commit();
+		getSupportFragmentManager().beginTransaction().hide(listFrag).commit();
+		//listFrag.setListShown(false);
+    	
+    	
+		
+		LogAssistCoreTask runTask = new LogAssistCoreTask();
+		runTask.execute();
 	    
 	}
 	
@@ -392,6 +479,44 @@ public class MainActivity extends ActionBarActivity implements
 		
 	}
 	
+	
+	
+	private class LogAssistCoreTask extends AsyncTask<Void, Void, ArrayList<LogRecord>> {
+	    @Override
+	    protected ArrayList<LogRecord> doInBackground(Void... nu) {
+	    	ArrayList<LogRecord> lg = LogBookCore.GetLogBook(homeAddress,homeList,
+					workAddress,workList,
+	                clientList, 
+	                StartAtAny,
+	                WorkOnWeekends,
+	                startDate, endDate,
+	                startODO,endODO,
+	                percentClaim,
+	                3,
+	                "DISTHOPS");
+	    	
+	    	return lg;
+	    }
+
+	    @Override
+	    protected void onPostExecute(ArrayList<LogRecord> lg) {
+	      //textView.setText(result);
+	    	logBookHandle = lg;
+	    	System.out.println(" RESULTS : " + logBookHandle.size());
+	    	listFrag.ChangeList(logBookHandle);
+	    	//listFrag.setListShown(true);
+	    	getSupportFragmentManager().beginTransaction().show(listFrag).commit();
+	    	//adapter.changeData(logBookHandle.GetRecords());
+	    	
+	    }
+	  }
+	
+	
+	
+	
+	
+	
+
 	
 	
 

@@ -19,9 +19,9 @@
         android:id="@+id/wa1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView1"
-        android:layout_alignRight="@+id/textView1"
-        android:layout_below="@+id/textView1"
+        android:layout_alignLeft="@+id/TripDesc"
+        android:layout_alignRight="@+id/TripDesc"
+        android:layout_below="@+id/TripDesc"
         android:layout_marginTop="15dp"
         android:ems="10"
         android:inputType="textPostalAddress" />
@@ -74,24 +74,27 @@
         android:id="@+id/workAddress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView1"
-        android:layout_alignRight="@+id/textView1"
+        android:layout_alignLeft="@+id/TripDesc"
+        android:layout_alignRight="@+id/TripDesc"
         android:layout_below="@+id/TextView01"
         android:ems="10"
-        android:inputType="textPostalAddress" />
+        android:inputType="textPostalAddress" 
+        >
+        <requestFocus />
+        </EditText>
 
     <CheckBox
         android:id="@+id/StartAtAny"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView1"
-        android:layout_alignRight="@+id/textView1"
+        android:layout_alignLeft="@+id/TripDesc"
+        android:layout_alignRight="@+id/TripDesc"
         android:layout_below="@+id/workAddress"
         android:layout_marginTop="14dp"
         android:text="I start work from any place of work.." />
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/TripDesc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/StartAtAny"

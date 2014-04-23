@@ -4,7 +4,7 @@
     android:layout_height="match_parent" >
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/TripDesc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -18,27 +18,30 @@
         android:id="@+id/Generate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView1"
+        android:layout_below="@+id/TripDesc"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="14dp"
         android:onClick="GenerateLogBook"
         android:text="Generate My Log" />
 
-    <ListView
-        android:id="@+id/listView1"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/button1" >
-    </ListView>
+    <fragment
+        android:id="@+id/fragment1"
+        android:name="android.app.ListFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/Export"
+        android:layout_below="@+id/Generate"
+        android:layout_centerHorizontal="true"
+         />
 
     <Button
         android:id="@+id/Export"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/button1"
-        android:layout_below="@+id/listView1"
-        android:layout_marginTop="30dp"
+        android:layout_alignLeft="@+id/Generate"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/Generate"
+        android:layout_marginBottom="107dp"
         android:onClick="ExportLogBook"
         android:text="Export Log" />
 
